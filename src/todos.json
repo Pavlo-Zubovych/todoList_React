@@ -1,0 +1,22 @@
+[
+    {
+        "id": "id-1",
+        "text": "Вивчити React",
+        "complited": true
+    },
+    {
+        "id": "id-2",
+        "text": "написати Todo List",
+        "complited": true
+    },
+    {
+        "id": "id-3",
+        "text": "розібратись з Redux",
+        "complited": false
+    },
+    {
+        "id": "id-4",
+        "text": "переписати Todo List на Redux з використанням TS ",
+        "complited": false
+    }
+]

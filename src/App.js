@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import styles from './App.module.css';
+// import ToDoItem from './ToDoItem/ToDoItem';
+// import ToDoForm from './ToDoForm/ToDoForm';
+import TodoList from './TodoList/TodoList';
+import intialTodos from './todos.json';
+
+class App extends Component {
+  state = {
+    todos: intialTodos,
+  };
+
+  deleteTodo = (todoId) => {
+    this.setState((prevstate) => ({
+      todos: prevstate.todos.filter((todo) => todo.id !== todoId),
+    }));
+  };
+
+  render() {
+    const { todos } = this.state;
+    const totalTodoCount = todos.length;
+    const completedTodoCount = todos.reduce(
+      (total, todo) => (todo.complited ? total + 1 : total),
+      0
+    );
+
+    return (
+      <div className='App'>
+        <h1>Стан компонета</h1>
+        <div>
+          <p>Загальна кількість: {totalTodoCount}</p>
+          <p>Виконано: {completedTodoCount}</p>
+        </div>
+        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        {/* <ToDoForm /> */}
+        {/* <ToDoItem /> */}
+      </div>
+    );
+  }
 }
 
 export default App;

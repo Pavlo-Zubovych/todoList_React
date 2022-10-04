@@ -10,8 +10,13 @@
   border: 1px solid black;
 }
 
+.TodoList__text__done {
+  text-decoration: line-through;
+}
+
 .TodoList__text {
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 5px;
+  /* text-decoration: line-through; */
 }

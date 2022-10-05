@@ -1,0 +1,13 @@
+.Container {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 24px;
+
+  /* background-color: rgb(134, 128, 128); */
+}

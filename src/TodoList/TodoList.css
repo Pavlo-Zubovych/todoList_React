@@ -1,5 +1,7 @@
 .TodoList {
-  width: 600px;
+  width: 422px;
+  margin: 0;
+  padding: 0;
 }
 
 .TodoList__item {

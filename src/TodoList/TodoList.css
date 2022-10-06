@@ -9,7 +9,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  margin-top: 4px;
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .TodoList__text__done {
@@ -21,4 +23,25 @@
   margin-bottom: 0;
   margin-right: 5px;
   /* text-decoration: line-through; */
+}
+
+button {
+  display: flex;
+  align-self: center;
+  max-width: 90px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid #d8d8d8;
+  background-color: rgb(216, 227, 243);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #8a2424;
+  border: 1px solid transparent;
+  color: #ffffff;
 }

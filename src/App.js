@@ -1,8 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
 
-// import styles from './App.module.css';
+import styles from './App.module.css';
 // import ToDoItem from './ToDoItem/ToDoItem';
+import Container from './Container';
 import ToDoForm from './ToDoForm/ToDoForm';
 import TodoList from './TodoList/TodoList';
 import intialTodos from './todos.json';
@@ -70,21 +71,25 @@ class App extends Component {
     );
 
     return (
-      <div className='App'>
-        <h1>to_Dolist</h1>
-        <div>
-          <p>Загальна кількість: {totalTodoCount}</p>
-          <p>Виконано: {completedTodoCount}</p>
-        </div>
+      <Container>
+        <div className='App'>
+          <h1 className={styles.Title}>to_Dolist</h1>
 
-        <ToDoForm onSubmit={this.addTodo} />
-        <TodoList
-          todos={todos}
-          onDeleteTodo={this.deleteTodo}
-          onDoneTodo={this.doneTodo}
-        />
-        {/* <ToDoItem /> */}
-      </div>
+          <ToDoForm onSubmit={this.addTodo} />
+          <div>
+            <span className={styles.Calculation}>
+              Загальна кількість: {totalTodoCount}
+            </span>{' '}
+            <span> Виконано: {completedTodoCount}</span>
+          </div>
+          <TodoList
+            todos={todos}
+            onDeleteTodo={this.deleteTodo}
+            onDoneTodo={this.doneTodo}
+          />
+          {/* <ToDoItem /> */}
+        </div>
+      </Container>
     );
   }
 }

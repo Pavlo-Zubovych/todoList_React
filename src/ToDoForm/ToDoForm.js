@@ -16,7 +16,7 @@ class ToDoForm extends Component {
   handelSubmit = (event) => {
     event.preventDefault();
 
-    this.props.onSubmit(this.state);
+    this.props.onSubmit(this.state.task);
     this.resetInput();
   };
 
@@ -31,8 +31,9 @@ class ToDoForm extends Component {
     return (
       <form className={styles.Form} onSubmit={this.handelSubmit}>
         <label className={styles.Label}>
-          New task
+          {/* New_task */}
           <input
+            placeholder='New task'
             className={styles.Input}
             id={nameId}
             type='text'
@@ -43,7 +44,7 @@ class ToDoForm extends Component {
         </label>
 
         <button type='submit' className={styles.Button}>
-          Add contact
+          Add task
         </button>
       </form>
     );

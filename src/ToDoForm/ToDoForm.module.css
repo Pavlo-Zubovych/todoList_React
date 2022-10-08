@@ -2,13 +2,14 @@
   width: 400px;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   border: 1px solid #000000;
   padding: 10px;
   margin-bottom: 30px;
 }
 
 .Label {
-  max-width: 400px;
+  /* max-width: 400px; */
 
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@
 }
 
 .Input {
-  max-width: 400px;
+  /* max-width: 400px; */
   margin-top: 5px;
   padding: 5px;
   border: 1px solid #d8d8d8;
@@ -29,11 +30,16 @@
 }
 
 .Button {
-  max-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* max-width: 400px; */
+  /* width: 400px; */
+  height: 30px;
   padding: 5px 10px;
   background-color: transparent;
   border: 1px solid #d8d8d8;
-  /* color: aliceblue; */
   background-color: rgb(216, 227, 243);
   border-radius: 4px;
   cursor: pointer;

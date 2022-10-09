@@ -4,14 +4,16 @@ import { Component } from 'react';
 import styles from './App.module.css';
 // import ToDoItem from './ToDoItem/ToDoItem';
 import Container from './Container';
-import ToDoForm from './ToDoForm/ToDoForm';
-import TodoList from './TodoList/TodoList';
+import ToDoForm from './ToDoForm';
+import TodoList from './TodoList';
+import Filter from './Filter';
 import intialTodos from './todos.json';
 import shortid from 'shortid';
 
 class App extends Component {
   state = {
     todos: intialTodos,
+    filter: '',
   };
 
   addTodo = (text) => {
@@ -62,13 +64,34 @@ class App extends Component {
     console.log(this.state);
   };
 
-  render() {
+  changeFilter = (e) => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getVisibleTodos = () => {
+    const { filter, todos } = this.state;
+
+    const normalizedFilter = filter.toLowerCase();
+
+    return todos.filter((todo) =>
+      todo.text.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  calculateCompletedTodos = () => {
     const { todos } = this.state;
-    const totalTodoCount = todos.length;
-    const completedTodoCount = todos.reduce(
+
+    return todos.reduce(
       (total, todo) => (todo.complited ? total + 1 : total),
       0
     );
+  };
+
+  render() {
+    const { todos, filter } = this.state;
+    const totalTodoCount = todos.length;
+    const completedTodoCount = this.calculateCompletedTodos();
+    const visibleTodos = this.getVisibleTodos();
 
     return (
       <Container>
@@ -82,8 +105,11 @@ class App extends Component {
             </span>{' '}
             <span> Виконано: {completedTodoCount}</span>
           </div>
+
+          <Filter value={filter} onChange={this.changeFilter} />
+
           <TodoList
-            todos={todos}
+            todos={visibleTodos}
             onDeleteTodo={this.deleteTodo}
             onDoneTodo={this.doneTodo}
           />

@@ -7,17 +7,17 @@ import Container from './Container';
 import ToDoForm from './ToDoForm';
 import TodoList from './TodoList';
 import Filter from './Filter';
-import intialTodos from './todos.json';
+// import intialTodos from './todos.json';
 import shortid from 'shortid';
 
 class App extends Component {
   state = {
-    todos: intialTodos,
+    todos: [],
     filter: '',
   };
 
   addTodo = (text) => {
-    console.log(text);
+    // console.log(text);
 
     const todo = {
       id: shortid.generate(),
@@ -61,7 +61,7 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   changeFilter = (e) => {
@@ -86,6 +86,24 @@ class App extends Component {
       0
     );
   };
+
+  componentDidMount() {
+    console.log('componentDidMount');
+
+    const todos = localStorage.getItem('todos');
+    const parsedTodis = JSON.parse(todos);
+
+    if (parsedTodis) {
+      this.setState({ todos: parsedTodis });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      // console.log('componentDidUpdate + ');
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
 
   render() {
     const { todos, filter } = this.state;

@@ -114,7 +114,7 @@ class App extends Component {
     return (
       <Container>
         <div className='App'>
-          <h1 className={styles.Title}>to_Dolist</h1>
+          <h1 className={styles.Title}>СписокЗавдань {/*to_Dolist*/}</h1>
 
           <ToDoForm onSubmit={this.addTodo} />
           <div>

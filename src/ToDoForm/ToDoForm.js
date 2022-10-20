@@ -33,7 +33,7 @@ class ToDoForm extends Component {
         <label className={styles.Label}>
           {/* New_task */}
           <input
-            placeholder='New task'
+            placeholder='Нове завдання' /*New task'*/
             className={styles.Input}
             id={nameId}
             type='text'
@@ -44,7 +44,7 @@ class ToDoForm extends Component {
         </label>
 
         <button type='submit' className={styles.Button}>
-          Add task
+          Додати {/* Add task */}
         </button>
       </form>
     );

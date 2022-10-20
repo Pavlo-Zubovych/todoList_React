@@ -3,10 +3,10 @@ import styles from './Filter.module.css';
 
 const Filter = ({ value, onChange }) => (
   <label>
-    Filter
+    Фільтер {/* Filter */}
     <input
       className={styles.Input}
-      placeholder='Enter text for filter toDos'
+      placeholder='Введіть текст, щоб відфільтрувати завдання' /*'Enter text for filter toDos'*/
       type='text'
       value={value}
       onChange={onChange}

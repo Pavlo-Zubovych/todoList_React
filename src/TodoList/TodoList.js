@@ -10,7 +10,7 @@ const TodoList = ({ todos, onDeleteTodo, onDoneTodo }) => (
         <Todo
           complited={complited}
           text={text}
-          ondelete={() => onDeleteTodo(id)}
+          onDelete={() => onDeleteTodo(id)}
         />
       </li>
     ))}
